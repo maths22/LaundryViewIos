@@ -1,0 +1,6 @@
+framework module Pods_LaundryView {
+  umbrella header "Pods-LaundryView-umbrella.h"
+
+  export *
+  module * { export * }
+}
