@@ -134,7 +134,8 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
         }
  
         machineCell.statusLabel?.text = statusText
-        machineCell.numberLabel?.badgeColor = statusColor
+        machineCell.backndView.backgroundColor = statusColor
+        machineCell.backndView.layer.cornerRadius = 8
         if (machine.timeRemaining != nil) {
             machineCell.remainingLabel?.text = "\(machine.timeRemaining!) minutes remaining"
             machineCell.remainingLabel?.isHidden = false

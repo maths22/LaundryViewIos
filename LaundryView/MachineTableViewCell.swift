@@ -11,6 +11,7 @@ import BadgeSwift
 
 class MachineTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var backndView: UIView!
     @IBOutlet weak var numberLabel: BadgeSwift!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var remainingLabel: UILabel!
