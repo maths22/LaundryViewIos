@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MachinesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
@@ -85,7 +86,7 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MachineCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MachineCell", for: indexPath) as! MachineTableViewCell
         
         guard machines != nil else {
             return cell
@@ -94,16 +95,19 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
             return cell
         }
         
+        cell.alertSwitch.tag = indexPath.row
+        cell.alertSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        
         let machine = machines![type]![indexPath.row]
         
-        let machineCell = cell as! MachineTableViewCell
+        let status: Status = machine.status == .inUse && machine.timeRemaining == nil ? .done : machine.status
         
-        machineCell.numberLabel?.text = machine.number
+        cell.numberLabel?.text = machine.number
         
         var statusText : String
         var statusColor : UIColor
         
-        switch machine.status {
+        switch status {
         case .available:
             statusColor = badgeColorGreen
             statusText = "Available"
@@ -121,30 +125,96 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
             statusText = "Unknown"
         }
         
-        machineCell.key = "\(room!.name)|\(room!.id)|\(machine.id)"
-        if(machine.status == Status.inUse) {
-            machineCell.alertSwitch.isHidden = false
-            if(UserDefaults.standard.bool(forKey: machineCell.key)) {
-                machineCell.alertSwitch.isOn = true
-            } else {
-                machineCell.alertSwitch.isOn = false
-            }
+        cell.key = "\(room!.name)|\(room!.id)|\(machine.id)"
+        if (status == .inUse) {
+            cell.alertSwitch.isHidden = false
+//            if(UserDefaults.standard.bool(forKey: cell.key)) {
+//                cell.alertSwitch.isOn = true
+//            } else {
+//                cell.alertSwitch.isOn = false
+//            }
+            let center = UNUserNotificationCenter.current()
+            cell.alertSwitch.isOn = false
+            center.getPendingNotificationRequests(completionHandler: { requests in
+                for request in requests {
+                    if request.identifier == machine.id {
+                        DispatchQueue.main.async {
+                            cell.alertSwitch.isOn = true
+                        }
+                        break
+                    }
+                }
+            })
         } else {
-            machineCell.alertSwitch.isHidden = true
+            cell.alertSwitch.isHidden = true
         }
  
-        machineCell.statusLabel?.text = statusText
-        machineCell.backndView.backgroundColor = statusColor
-        machineCell.backndView.layer.cornerRadius = 8
-        if (machine.timeRemaining != nil) {
-            machineCell.remainingLabel?.text = "\(machine.timeRemaining!) minutes remaining"
-            machineCell.remainingLabel?.isHidden = false
+        cell.statusLabel?.text = statusText
+        cell.backndView.backgroundColor = statusColor
+        cell.backndView.layer.cornerRadius = 8
+        if let time = machine.timeRemaining {
+            let s = time == 1 ? "" : "s"
+            cell.remainingLabel?.text = "\(time) minute\(s) remaining"
+            cell.remainingLabel?.isHidden = false
         } else {
-            machineCell.remainingLabel?.isHidden = true
+            cell.remainingLabel?.isHidden = true
         }
         
         
         return cell
+    }
+    
+    @objc func switchChanged(_ thisSwitch: UISwitch) {
+        guard machines != nil else {
+            printError()
+            return
+        }
+        guard machines![type] != nil else {
+            printError()
+            return
+        }
+        
+        let machine = machines![type]![thisSwitch.tag]
+        
+        if machine.timeRemaining == nil {
+            printError()
+            return
+        }
+        
+        if thisSwitch.isOn {
+            let content = UNMutableNotificationContent()
+            let type = machine.type == .washer ? "washer" : "dryer"
+            var number = machine.number
+            if machine.number.first == "0" {
+                number.removeFirst()
+            }
+//            content.title = "LaundryView"
+            content.body = "Your laundry in \(type) #\(number) is done"
+            content.sound = UNNotificationSound.default
+
+            // show this notification five seconds from now
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60*Double(machine.timeRemaining!), repeats: false)
+
+            // choose a random identifier
+            let request = UNNotificationRequest(identifier: machine.id, content: content, trigger: trigger)
+
+            // add our notification request
+            UNUserNotificationCenter.current().add(request)
+        } else {
+            let center = UNUserNotificationCenter.current()
+            center.removeDeliveredNotifications(withIdentifiers: [machine.id])
+            center.removePendingNotificationRequests(withIdentifiers: [machine.id])
+        }
+        
+        
+        
+    }
+    
+    func printError() {
+        let alert = UIAlertController(title: "Error", message: "Error setting notification for washer/dryer, please try again", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Dismiss", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
     
 
