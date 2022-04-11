@@ -25,7 +25,6 @@
 		DDDF24881F97C2C9007111A3 /* MachinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF24871F97C2C9007111A3 /* MachinesViewController.swift */; };
 		DDDF248A1F97DF68007111A3 /* MachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */; };
 		DDDF248C1F97F0C5007111A3 /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */; };
-		DDDF248E1F980505007111A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDDF248D1F98047D007111A3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +71,6 @@
 		DDDF24871F97C2C9007111A3 /* MachinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinesViewController.swift; sourceTree = "<group>"; };
 		DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineTableViewCell.swift; sourceTree = "<group>"; };
 		DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
-		DDDF248D1F98047D007111A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0DF513F55A060D3FD5C3966 /* Pods_LaundryViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaundryViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E397C026170274307EC1252D /* Pods-LaundryView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryView.debug.xcconfig"; path = "Target Support Files/Pods-LaundryView/Pods-LaundryView.debug.xcconfig"; sourceTree = "<group>"; };
 		EA1946AFE5F2E36E29F286BA /* Pods-LaundryView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryView.release.xcconfig"; path = "Target Support Files/Pods-LaundryView/Pods-LaundryView.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				8CB3701F2291EE20009B82CC /* LaundryView.entitlements */,
-				DDDF248D1F98047D007111A3 /* GoogleService-Info.plist */,
 				DDDF24401F97A134007111A3 /* data */,
 				DDDF240E1F979D12007111A3 /* AppDelegate.swift */,
 				DDDF24851F97BC20007111A3 /* LaundryRoomTableViewController.swift */,
@@ -321,7 +318,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDDF24191F979D12007111A3 /* LaunchScreen.storyboard in Resources */,
-				DDDF248E1F980505007111A3 /* GoogleService-Info.plist in Resources */,
 				DDDF24161F979D12007111A3 /* Assets.xcassets in Resources */,
 				DDDF24141F979D12007111A3 /* Main.storyboard in Resources */,
 			);
@@ -432,27 +428,17 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LaundryView/Pods-LaundryView-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -649,7 +635,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LaundryView/LaundryView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5E845TX3E6;
 				INFOPLIST_FILE = LaundryView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -671,7 +657,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LaundryView/LaundryView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5E845TX3E6;
 				INFOPLIST_FILE = LaundryView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

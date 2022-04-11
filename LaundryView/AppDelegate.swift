@@ -7,23 +7,17 @@
 //
 
 import UIKit
-import Firebase
 import UserNotifications
 import Sentry
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
-    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        UserDefaults.standard.set(fcmToken, forKey: "firebaseToken")
-    }
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        FirebaseApp.configure()
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -40,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         }
         
         application.registerForRemoteNotifications()
-        Messaging.messaging().delegate = self
         
         do {
             Client.shared = try Client(dsn: "https://e6149b80e2ee49088d3c141a53195caa@sentry.io/1463101")

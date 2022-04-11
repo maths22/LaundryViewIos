@@ -87,6 +87,9 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKo-eV-Hh3">
                                                     <rect key="frame" x="75" y="35" width="262" height="13.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="13.5" id="h0u-yl-ZMo"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -140,7 +143,6 @@
                                                 <constraint firstItem="cH4-Gt-AeN" firstAttribute="leading" secondItem="vc9-8x-BB1" secondAttribute="trailing" constant="15" id="m3p-ju-9TP"/>
                                                 <constraint firstItem="4K4-QZ-8EM" firstAttribute="trailing" secondItem="b39-bM-Xgp" secondAttribute="trailingMargin" id="vVU-17-bDc"/>
                                                 <constraint firstItem="4K4-QZ-8EM" firstAttribute="leading" secondItem="gKo-eV-Hh3" secondAttribute="trailing" constant="8" symbolic="YES" id="who-Kr-Aye"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="gKo-eV-Hh3" secondAttribute="bottom" constant="6.5" id="y3T-vg-cKC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

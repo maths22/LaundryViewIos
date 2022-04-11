@@ -85,6 +85,10 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
         return machines![type]!.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 66
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MachineCell", for: indexPath) as! MachineTableViewCell
         
