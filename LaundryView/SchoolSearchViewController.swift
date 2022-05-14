@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class SchoolSearchViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
     
@@ -67,7 +68,11 @@ class SchoolSearchViewController: UITableViewController, UISearchResultsUpdating
             return;
         }
         
+        let hud = JGProgressHUD()
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
         service.findSchools(name: searchController.searchBar.text!, completion: { (schools : [School]) in
+            hud.dismiss()
             self.schools = schools
             self.tableView?.reloadData()
         })

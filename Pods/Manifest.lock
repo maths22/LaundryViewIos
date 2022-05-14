@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
   - BadgeSwift (8.0.0)
+  - JGProgressHUD (2.2)
   - Sentry (4.3.1):
     - Sentry/Core (= 4.3.1)
   - Sentry/Core (4.3.1)
@@ -8,12 +9,14 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - BadgeSwift (~> 8.0)
+  - JGProgressHUD
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - BadgeSwift
+    - JGProgressHUD
 
 EXTERNAL SOURCES:
   Sentry:
@@ -28,8 +31,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BadgeSwift: a81547ffde1f462bb5fc02e3fa3fdcbc1b888354
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
 
-PODFILE CHECKSUM: db6f310a82bb90c35cc3d051576c9f2352ad599d
+PODFILE CHECKSUM: 4098018223cba434bbe1365d7a1217dbced19d71
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

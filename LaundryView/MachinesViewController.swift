@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import StoreKit
 
 class MachinesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
@@ -52,6 +53,10 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
                 id: UserDefaults.standard.string(forKey: "roomId")!,
                 name: UserDefaults.standard.string(forKey: "roomName")!
             )
+        }
+        
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
         }
         
         // Uncomment the following line to preserve selection between presentations

@@ -9,6 +9,7 @@ target 'LaundryView' do
   # Pods for LaundryView
   pod 'BadgeSwift', '~> 8.0'
   pod 'Alamofire', '~> 4.7'
+  pod 'JGProgressHUD'
 
   target 'LaundryViewTests' do
     inherit! :search_paths
