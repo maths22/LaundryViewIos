@@ -29,11 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         application.registerForRemoteNotifications()
         
-        do {
-            Client.shared = try Client(dsn: "https://e6149b80e2ee49088d3c141a53195caa@sentry.io/1463101")
-            try Client.shared?.startCrashHandler()
-        } catch let error {
-            print("\(error)")
+        if UserDefaults.standard.string(forKey: "schoolId") == nil {
+            let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchNavController")
+            self.window?.rootViewController = rootController
         }
 
         return true

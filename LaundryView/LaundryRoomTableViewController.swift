@@ -65,6 +65,18 @@ class LaundryRoomTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if UserDefaults.standard.string(forKey: "roomId") == nil {
+            saveShit(at: indexPath)
+            performSegue(withIdentifier: "toTabBarSegue", sender: self)
+        } else {
+            saveShit(at: indexPath)
+            self.dismiss(animated: true)
+        }
+    }
+    
+    func saveShit(at indexPath: IndexPath) {
         let room = laundryRooms[indexPath.row]
         
         UserDefaults.standard.set(room.id, forKey: "roomId")
@@ -72,8 +84,6 @@ class LaundryRoomTableViewController: UITableViewController {
         UserDefaults.standard.synchronize()
         
         NotificationCenter.default.post(name: .requestMachineDataReload, object: nil)
-        
-        self.dismiss(animated: true)
     }
     
     //MARK: Private Methods

@@ -39,10 +39,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="chO-by-UV0" kind="presentation" identifier="toTabBarSegue" modalPresentationStyle="fullScreen" id="hc0-Oi-SqP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guY-cP-TPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3191" y="-782"/>
+            <point key="canvasLocation" x="3367" y="-821"/>
         </scene>
         <!--Machines-->
         <scene sceneID="62C-Lj-PnQ">
@@ -436,16 +439,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="qkx-ck-LRd"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="DqC-RP-NTi">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvW-Mb-8cO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1627.536231884058" y="-976.33928571428567"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="kKi-9D-Vy0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="klG-js-huI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ArZ-JP-hkS"/>
+                <navigationController storyboardIdentifier="searchNavController" automaticallyAdjustsScrollViewInsets="NO" id="klG-js-huI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d3N-bU-ZFG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7kT-Q7-Mww">

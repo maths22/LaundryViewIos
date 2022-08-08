@@ -17,7 +17,6 @@ class MachineTableViewCell: UITableViewCell {
     @IBOutlet weak var remainingLabel: UILabel!
     @IBOutlet weak var alertSwitch: UISwitch!
     var key: String = ""
-    let service = LVAPIService()
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -71,6 +71,7 @@ class SchoolSearchViewController: UITableViewController, UISearchResultsUpdating
         let hud = JGProgressHUD()
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
+        hud.dismiss(afterDelay: 1.0)
         service.findSchools(name: searchController.searchBar.text!, completion: { (schools : [School]) in
             hud.dismiss()
             self.schools = schools

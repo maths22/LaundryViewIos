@@ -14,6 +14,7 @@ class HomeTVC: UITableViewController {
         super.viewDidLoad()
         setRoomName()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .machineDataReloaded, object: nil)
+        self.refreshControl?.addTarget(self, action: #selector(loadMachines), for: UIControl.Event.valueChanged)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,6 +75,7 @@ class HomeTVC: UITableViewController {
     @objc func reloadMachines() {
         setRoomName()
         tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
     
     func setRoomName() {
@@ -83,6 +85,10 @@ class HomeTVC: UITableViewController {
         } else {
             title = "Home"
         }
+    }
+    
+    @objc func loadMachines() {
+        NotificationCenter.default.post(name: .requestMachineDataReload, object: nil)
     }
     
 }
