@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1AC66AA13E602016D20C11F0 /* Pods_LaundryView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0C9EAF64AA7FE40ADD5E31 /* Pods_LaundryView.framework */; };
 		3A2A48091B46ED30B0409B8C /* Pods_LaundryViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DF513F55A060D3FD5C3966 /* Pods_LaundryViewTests.framework */; };
+		7473EC0728A0636B00D2A811 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0628A0636B00D2A811 /* HomeTVC.swift */; };
+		7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0828A086E600D2A811 /* NSNotifications.swift */; };
 		9C7C363E64EFF5DA5C701E93 /* Pods_LaundryViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9FF5AE20564283C59F224A /* Pods_LaundryViewUITests.framework */; };
 		DDDF240F1F979D12007111A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF240E1F979D12007111A3 /* AppDelegate.swift */; };
 		DDDF24111F979D12007111A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF24101F979D12007111A3 /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		342E7BDEE61B31F10035A16F /* Pods-LaundryViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-LaundryViewUITests/Pods-LaundryViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A5AE90F32C55C507D83B2D0 /* Pods-LaundryViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewTests.debug.xcconfig"; path = "Target Support Files/Pods-LaundryViewTests/Pods-LaundryViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7473EC0628A0636B00D2A811 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		7473EC0828A086E600D2A811 /* NSNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotifications.swift; sourceTree = "<group>"; };
 		8CB3701F2291EE20009B82CC /* LaundryView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaundryView.entitlements; sourceTree = "<group>"; };
 		8D4AC5A4EFA7B4D866616084 /* Pods-LaundryViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewTests.release.xcconfig"; path = "Target Support Files/Pods-LaundryViewTests/Pods-LaundryViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		8ED5074B013A408084F2912A /* Pods-LaundryViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewUITests.release.xcconfig"; path = "Target Support Files/Pods-LaundryViewUITests/Pods-LaundryViewUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				DDDF240E1F979D12007111A3 /* AppDelegate.swift */,
 				DDDF24851F97BC20007111A3 /* LaundryRoomTableViewController.swift */,
 				DDDF24101F979D12007111A3 /* ViewController.swift */,
+				7473EC0628A0636B00D2A811 /* HomeTVC.swift */,
+				7473EC0828A086E600D2A811 /* NSNotifications.swift */,
 				DDDF24121F979D12007111A3 /* Main.storyboard */,
 				DDDF24151F979D12007111A3 /* Assets.xcassets */,
 				DDDF24171F979D12007111A3 /* LaunchScreen.storyboard */,
@@ -457,7 +463,9 @@
 				DDDF24111F979D12007111A3 /* ViewController.swift in Sources */,
 				DDDF243F1F97A12D007111A3 /* Machine.swift in Sources */,
 				DDDF248A1F97DF68007111A3 /* MachineTableViewCell.swift in Sources */,
+				7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */,
 				DDDF240F1F979D12007111A3 /* AppDelegate.swift in Sources */,
+				7473EC0728A0636B00D2A811 /* HomeTVC.swift in Sources */,
 				DDDF248C1F97F0C5007111A3 /* SchoolSearchViewController.swift in Sources */,
 				DDDF24861F97BC20007111A3 /* LaundryRoomTableViewController.swift in Sources */,
 				DDDF24811F97AD88007111A3 /* LaundryViewApiService.swift in Sources */,

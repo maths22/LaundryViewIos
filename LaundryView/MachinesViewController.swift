@@ -41,37 +41,38 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
         machineTable.delegate = self
         machineTable.dataSource = self
 
-        if #available(iOS 10.0, *) {
-            machineTable.refreshControl = refreshControl
-        } else {
-            machineTable.addSubview(refreshControl)
-        }
+        machineTable.refreshControl = refreshControl
+            
         refreshControl.addTarget(self, action: #selector(loadMachines), for: .valueChanged)
         
+        reloadMachines()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .changedLocation, object: nil)
+        
+//        if #available(iOS 10.3, *) {
+//            SKStoreReviewController.requestReview()
+//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    @objc func reloadMachines() {
         if(UserDefaults.standard.string(forKey: "roomId") != nil) {
             room = LaundryRoom(
                 id: UserDefaults.standard.string(forKey: "roomId")!,
                 name: UserDefaults.standard.string(forKey: "roomName")!
             )
         }
-        
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setRoomName()
+        loadMachines()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.title = room?.name
-        
-        loadMachines()
+    func setRoomName() {
+        title = room?.name
+        tabBarController?.tabBar.items?[1].title = "Machines"
     }
 
     override func didReceiveMemoryWarning() {
