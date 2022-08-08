@@ -35,6 +35,9 @@ class HomeTVC: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "machinesAvailableCell", for: indexPath) as! MachinesAvailableCell
             
+            cell.washerView.layer.cornerRadius = 10
+            cell.dryerView.layer.cornerRadius = 10
+            
             cell.washerImage.image = UIImage(named: "washerIcon")?.withRenderingMode(.alwaysTemplate)
             cell.dryerImage.image = UIImage(named: "dryerIcon")?.withRenderingMode(.alwaysTemplate)
             
@@ -45,7 +48,7 @@ class HomeTVC: UITableViewController {
                 }
             } else {
                 let availableWashers = machines![.washer]?.filter({ $0.status == .available }) ?? []
-                cell.washersAvailableLabel.text = "\(availableWashers.count) washer\(availableWashers.count == 1 ? "" : "s") available"
+                cell.washersAvailableLabel.text = "\(availableWashers.count) Washer\(availableWashers.count == 1 ? "" : "s") Available"
                 
                 if #available(iOS 13.0, *) {
                     cell.washerImage.tintColor = availableWashers.isEmpty ? .systemRed : .systemGreen
@@ -59,7 +62,7 @@ class HomeTVC: UITableViewController {
                 }
             } else {
                 let availableDryers = machines![.dryer]?.filter({ $0.status == .available }) ?? []
-                cell.dryersAvailableLabel.text = "\(availableDryers.count) dryer\(availableDryers.count == 1 ? "" : "s") available"
+                cell.dryersAvailableLabel.text = "\(availableDryers.count) Dryer\(availableDryers.count == 1 ? "" : "s") Available"
                 if #available(iOS 13.0, *) {
                     cell.dryerImage.tintColor = availableDryers.isEmpty ? .systemRed : .systemGreen
                 }
@@ -103,8 +106,10 @@ class TimeLeftCell: UITableViewCell {
 
 class MachinesAvailableCell: UITableViewCell {
     
+    @IBOutlet var washerView: UIView!
     @IBOutlet var washerImage: UIImageView!
     @IBOutlet var washersAvailableLabel: UILabel!
+    @IBOutlet var dryerView: UIView!
     @IBOutlet var dryerImage: UIImageView!
     @IBOutlet var dryersAvailableLabel: UILabel!
     

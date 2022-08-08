@@ -10,9 +10,9 @@ import Foundation
 
 
 
-enum MachineType {
-    case washer
-    case dryer
+enum MachineType: String, Codable {
+    case washer = "washer"
+    case dryer = "dryer"
 }
 
 enum Status: String {

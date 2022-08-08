@@ -12,6 +12,7 @@
 		7473EC0728A0636B00D2A811 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0628A0636B00D2A811 /* HomeTVC.swift */; };
 		7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0828A086E600D2A811 /* NSNotifications.swift */; };
 		7473EC0D28A0BDAF00D2A811 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */; };
+		74A38B1728A0E466002DA88B /* CurrentMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A38B1628A0E466002DA88B /* CurrentMachine.swift */; };
 		9C7C363E64EFF5DA5C701E93 /* Pods_LaundryViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9FF5AE20564283C59F224A /* Pods_LaundryViewUITests.framework */; };
 		DDDF240F1F979D12007111A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF240E1F979D12007111A3 /* AppDelegate.swift */; };
 		DDDF24141F979D12007111A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDF24121F979D12007111A3 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		7473EC0628A0636B00D2A811 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		7473EC0828A086E600D2A811 /* NSNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotifications.swift; sourceTree = "<group>"; };
 		7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		74A38B1628A0E466002DA88B /* CurrentMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMachine.swift; sourceTree = "<group>"; };
 		8CB3701F2291EE20009B82CC /* LaundryView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaundryView.entitlements; sourceTree = "<group>"; };
 		8D4AC5A4EFA7B4D866616084 /* Pods-LaundryViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewTests.release.xcconfig"; path = "Target Support Files/Pods-LaundryViewTests/Pods-LaundryViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		8ED5074B013A408084F2912A /* Pods-LaundryViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewUITests.release.xcconfig"; path = "Target Support Files/Pods-LaundryViewUITests/Pods-LaundryViewUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				DDDF243C1F979FDE007111A3 /* LaundryRoom.swift */,
 				DDDF243E1F97A12D007111A3 /* Machine.swift */,
+				74A38B1628A0E466002DA88B /* CurrentMachine.swift */,
 				DDDF24411F97A2EE007111A3 /* School.swift */,
 				DDDF24801F97AD88007111A3 /* LaundryViewApiService.swift */,
 			);
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A38B1728A0E466002DA88B /* CurrentMachine.swift in Sources */,
 				DDDF243F1F97A12D007111A3 /* Machine.swift in Sources */,
 				DDDF248A1F97DF68007111A3 /* MachineTableViewCell.swift in Sources */,
 				7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */,

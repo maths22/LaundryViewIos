@@ -333,12 +333,42 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhA-jd-dN5">
+                                            <rect key="frame" x="346" y="10" width="18" height="18"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Eai-WB-bcY">
+                                                    <rect key="frame" x="0.0" y="1.5" width="18" height="15"/>
+                                                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zf7-cn-caS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="nhA-jd-dN5" secondAttribute="height" multiplier="1:1" id="0NX-2C-PgJ"/>
+                                                <constraint firstItem="zf7-cn-caS" firstAttribute="top" secondItem="nhA-jd-dN5" secondAttribute="top" id="MSr-kg-ZSD"/>
+                                                <constraint firstItem="Eai-WB-bcY" firstAttribute="leading" secondItem="nhA-jd-dN5" secondAttribute="leading" id="TAX-PG-k5U"/>
+                                                <constraint firstAttribute="trailing" secondItem="zf7-cn-caS" secondAttribute="trailing" id="dg1-cQ-eay"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eai-WB-bcY" secondAttribute="trailing" id="fHA-PH-GFz"/>
+                                                <constraint firstAttribute="width" constant="18" id="i7g-v6-uhb"/>
+                                                <constraint firstItem="zf7-cn-caS" firstAttribute="leading" secondItem="nhA-jd-dN5" secondAttribute="leading" id="mwF-Qx-2x5"/>
+                                                <constraint firstAttribute="bottom" secondItem="zf7-cn-caS" secondAttribute="bottom" id="nKb-T5-dI7"/>
+                                                <constraint firstAttribute="bottom" secondItem="Eai-WB-bcY" secondAttribute="bottom" id="p2A-Jt-sjD"/>
+                                                <constraint firstItem="Eai-WB-bcY" firstAttribute="top" secondItem="nhA-jd-dN5" secondAttribute="top" id="rEx-aE-dz6"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="rJm-ev-5oc" firstAttribute="leading" secondItem="Pcd-R8-zfN" secondAttribute="leadingMargin" id="1TT-Bt-iTw"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="x3I-eJ-xsk" secondAttribute="trailing" id="6su-kx-BZ8"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="rJm-ev-5oc" secondAttribute="trailing" id="7NN-WM-o9b"/>
+                                        <constraint firstAttribute="trailing" secondItem="nhA-jd-dN5" secondAttribute="trailing" constant="10" id="8wK-N6-sgv"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="x3I-eJ-xsk" secondAttribute="bottom" constant="4" id="PAf-ty-ERr"/>
+                                        <constraint firstItem="nhA-jd-dN5" firstAttribute="top" secondItem="Pcd-R8-zfN" secondAttribute="top" constant="10" id="Qby-A4-Sgs"/>
                                         <constraint firstItem="x3I-eJ-xsk" firstAttribute="top" secondItem="rJm-ev-5oc" secondAttribute="bottom" constant="8" symbolic="YES" id="VR5-Og-VdI"/>
                                         <constraint firstItem="V1i-uv-epk" firstAttribute="top" secondItem="Pcd-R8-zfN" secondAttribute="topMargin" constant="2" id="Xc2-5L-ukj"/>
                                         <constraint firstItem="x3I-eJ-xsk" firstAttribute="leading" secondItem="Pcd-R8-zfN" secondAttribute="leadingMargin" id="prv-a3-V2B"/>
@@ -360,21 +390,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pt9-xH-izD">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="210"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="183" height="210"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="washerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-zI-TaY">
-                                                    <rect key="frame" x="33" y="26" width="121" height="129"/>
+                                                    <rect key="frame" x="33" y="26" width="117" height="124.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Vd4-zI-TaY" secondAttribute="height" multiplier="121:129" id="nvS-3i-XWF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 washers available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-SD-cck">
-                                                    <rect key="frame" x="10" y="163" width="167" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 washers available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-SD-cck">
+                                                    <rect key="frame" x="10" y="158.5" width="163" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="Vd4-zI-TaY" firstAttribute="top" secondItem="Pt9-xH-izD" secondAttribute="top" constant="26" id="A6K-uR-OT1"/>
                                                 <constraint firstItem="Vd4-zI-TaY" firstAttribute="leading" secondItem="Pt9-xH-izD" secondAttribute="leading" constant="33" id="BkK-Qv-oIk"/>
@@ -387,21 +418,22 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5I-fa-RHq">
-                                            <rect key="frame" x="187" y="0.0" width="187" height="210"/>
+                                            <rect key="frame" x="191" y="0.0" width="183" height="210"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dryerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9Vu-Bo-vZD">
-                                                    <rect key="frame" x="33" y="26" width="121" height="129"/>
+                                                    <rect key="frame" x="33" y="26" width="117" height="124.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9Vu-Bo-vZD" secondAttribute="height" multiplier="121:129" id="nny-v5-H69"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 dryers available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wm-hR-gy5">
-                                                    <rect key="frame" x="10" y="163" width="167" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 dryers available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Wm-hR-gy5">
+                                                    <rect key="frame" x="10" y="158.5" width="163" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="5Wm-hR-gy5" firstAttribute="top" secondItem="9Vu-Bo-vZD" secondAttribute="bottom" constant="8" symbolic="YES" id="60N-qY-Tvc"/>
                                                 <constraint firstItem="9Vu-Bo-vZD" firstAttribute="centerX" secondItem="m5I-fa-RHq" secondAttribute="centerX" id="6lN-Gf-SVO"/>
@@ -414,6 +446,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="Pt9-xH-izD" firstAttribute="top" secondItem="ysz-mu-aUv" secondAttribute="top" id="31n-dl-716"/>
                                         <constraint firstItem="m5I-fa-RHq" firstAttribute="width" secondItem="Pt9-xH-izD" secondAttribute="width" id="7j4-nW-4S6"/>
@@ -422,13 +455,15 @@
                                         <constraint firstAttribute="trailing" secondItem="m5I-fa-RHq" secondAttribute="trailing" id="hRS-aP-JLE"/>
                                         <constraint firstItem="Pt9-xH-izD" firstAttribute="leading" secondItem="ysz-mu-aUv" secondAttribute="leading" id="iYk-Vd-z5y"/>
                                         <constraint firstAttribute="bottom" secondItem="Pt9-xH-izD" secondAttribute="bottom" id="kXT-a1-moW"/>
-                                        <constraint firstItem="m5I-fa-RHq" firstAttribute="leading" secondItem="Pt9-xH-izD" secondAttribute="trailing" id="pfV-O1-kBK"/>
+                                        <constraint firstItem="m5I-fa-RHq" firstAttribute="leading" secondItem="Pt9-xH-izD" secondAttribute="trailing" constant="8" id="pfV-O1-kBK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dryerImage" destination="9Vu-Bo-vZD" id="DLT-1v-bC3"/>
+                                    <outlet property="dryerView" destination="m5I-fa-RHq" id="Hxb-kw-axU"/>
                                     <outlet property="dryersAvailableLabel" destination="5Wm-hR-gy5" id="onh-SE-fxJ"/>
                                     <outlet property="washerImage" destination="Vd4-zI-TaY" id="Kob-io-wBt"/>
+                                    <outlet property="washerView" destination="Pt9-xH-izD" id="0og-Tp-OCB"/>
                                     <outlet property="washersAvailableLabel" destination="DNo-SD-cck" id="6a7-aK-dZp"/>
                                 </connections>
                             </tableViewCell>
@@ -440,6 +475,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="qkx-ck-LRd"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="DqC-RP-NTi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>
@@ -472,14 +508,21 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="note" catalog="system" width="128" height="106"/>
         <image name="washerIcon" width="554" height="554"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
