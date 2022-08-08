@@ -11,8 +11,8 @@ import Foundation
 
 
 enum MachineType: String, Codable {
-    case washer = "washer"
-    case dryer = "dryer"
+    case washer = "Washer"
+    case dryer = "Dryer"
 }
 
 enum Status: String {

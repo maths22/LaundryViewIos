@@ -380,6 +380,7 @@
                                     <outlet property="machineImage" destination="1H8-pw-lkk" id="htZ-F0-Gns"/>
                                     <outlet property="machineNumberLabel" destination="x3I-eJ-xsk" id="o8c-Ys-8ml"/>
                                     <outlet property="timeLeftLabel" destination="rJm-ev-5oc" id="SAk-WQ-whU"/>
+                                    <outlet property="xButton" destination="zf7-cn-caS" id="RUK-Ie-dWG"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="machinesAvailableCell" rowHeight="210" id="Bj3-OU-ZN3" customClass="MachinesAvailableCell" customModule="LaundryView" customModuleProvider="target">

@@ -68,15 +68,15 @@ class LaundryRoomTableViewController: UITableViewController {
         
         
         if UserDefaults.standard.string(forKey: "roomId") == nil {
-            saveShit(at: indexPath)
+            saveStuff(at: indexPath)
             performSegue(withIdentifier: "toTabBarSegue", sender: self)
         } else {
-            saveShit(at: indexPath)
+            saveStuff(at: indexPath)
             self.dismiss(animated: true)
         }
     }
     
-    func saveShit(at indexPath: IndexPath) {
+    func saveStuff(at indexPath: IndexPath) {
         let room = laundryRooms[indexPath.row]
         
         UserDefaults.standard.set(room.id, forKey: "roomId")

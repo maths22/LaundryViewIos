@@ -209,10 +209,22 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
 
             // add our notification request
             UNUserNotificationCenter.current().add(request)
+            
+            let date = Date()
+            
+            var doneDate: Date?
+            if let timeRemaining = machine.timeRemaining {
+                doneDate = date+Double(timeRemaining*60)
+            }
+            
+            CurrentMachineCache.addMachine(CurrentMachine(id: machine.id, number: machine.number, type: machine.type, startDate: date, dateDone: doneDate))
+            
         } else {
             let center = UNUserNotificationCenter.current()
             center.removeDeliveredNotifications(withIdentifiers: [machine.id])
             center.removePendingNotificationRequests(withIdentifiers: [machine.id])
+            
+            CurrentMachineCache.removeMachine(with: machine.id)
         }
         
         

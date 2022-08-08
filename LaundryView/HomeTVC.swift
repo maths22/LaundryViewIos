@@ -10,27 +10,67 @@ import UIKit
 
 class HomeTVC: UITableViewController {
     
+    var currentMachines: [CurrentMachine] = []
+    
+    var machinesSection: Int {
+        return currentMachines.isEmpty ? 1 : 2
+    }
+    
+    var currentMachinesSection: Int? {
+        return currentMachines.isEmpty ? nil : 1
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setRoomName()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .machineDataReloaded, object: nil)
         self.refreshControl?.addTarget(self, action: #selector(loadMachines), for: UIControl.Event.valueChanged)
+        currentMachines = CurrentMachineCache.getAndFilter()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if machines == nil {
-            return 1
+        var amount = 1
+        if machines != nil {
+            amount += 1
         }
-        return 2
+        if !currentMachines.isEmpty {
+            amount += 1
+        }
+        return amount
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        if currentMachinesSection == section {
+            return currentMachines.count
+        }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "changeLocationCell", for: indexPath)
+            return cell
+        } else if let currentMachinesSection = currentMachinesSection, currentMachinesSection == indexPath.section {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "timeLeftCell", for: indexPath) as! TimeLeftCell
+            
+            let machine = currentMachines[indexPath.row]
+            cell.machineImage.image = UIImage(named: machine.type == .washer ? "washerIcon" : "dryerIcon")?.withRenderingMode(.alwaysTemplate)
+            if #available(iOS 13.0, *) {
+                cell.machineImage.tintColor = .secondaryLabel
+            }
+            cell.machineNumberLabel.text = "\(machine.type.rawValue) #\(machine.number)"
+            
+            cell.timeLeftLabel.text = "Done"
+            if let dateDone = machine.dateDone {
+                let difference = Calendar.current.dateComponents([.minute], from: dateDone, to: Date()).minute ?? 0
+                if difference > 0 {
+                    cell.timeLeftLabel.text = "\(difference) minute\(difference == 1 ? "" : "s") left"
+                }
+            }
+            
+            cell.xButton.tag = indexPath.row
+            cell.xButton.addTarget(self, action: #selector(removeCurrentMachine), for: .touchDown)
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "machinesAvailableCell", for: indexPath) as! MachinesAvailableCell
@@ -77,6 +117,7 @@ class HomeTVC: UITableViewController {
     
     @objc func reloadMachines() {
         setRoomName()
+        currentMachines = CurrentMachineCache.getAndFilter()
         tableView.reloadData()
         refreshControl?.endRefreshing()
     }
@@ -94,6 +135,13 @@ class HomeTVC: UITableViewController {
         NotificationCenter.default.post(name: .requestMachineDataReload, object: nil)
     }
     
+    @objc func removeCurrentMachine(_ button: UIButton) {
+        let index = button.tag
+        CurrentMachineCache.removeMachine(with: currentMachines[index].id)
+        currentMachines.remove(at: index)
+        tableView.deleteRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
+    }
+    
 }
 
 class TimeLeftCell: UITableViewCell {
@@ -101,6 +149,7 @@ class TimeLeftCell: UITableViewCell {
     @IBOutlet var machineImage: UIImageView!
     @IBOutlet var timeLeftLabel: UILabel!
     @IBOutlet var machineNumberLabel: UILabel!
+    @IBOutlet var xButton: UIButton!
     
 }
 
