@@ -11,6 +11,5 @@ import Foundation
 extension Notification.Name {
     
     static let changedLocation = Notification.Name("changedLocation")
-    static let addBackToLine = Notification.Name("addBackToLine")
     
 }

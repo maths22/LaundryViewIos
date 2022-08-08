@@ -159,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				8CB3701F2291EE20009B82CC /* LaundryView.entitlements */,
-				DDDF24401F97A134007111A3 /* data */,
 				DDDF240E1F979D12007111A3 /* AppDelegate.swift */,
+				DDDF24401F97A134007111A3 /* data */,
 				DDDF24851F97BC20007111A3 /* LaundryRoomTableViewController.swift */,
 				DDDF24101F979D12007111A3 /* ViewController.swift */,
 				7473EC0628A0636B00D2A811 /* HomeTVC.swift */,
