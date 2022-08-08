@@ -71,7 +71,7 @@ class LaundryRoomTableViewController: UITableViewController {
         UserDefaults.standard.set(room.name, forKey: "roomName")
         UserDefaults.standard.synchronize()
         
-        NotificationCenter.default.post(name: .changedLocation, object: nil)
+        NotificationCenter.default.post(name: .requestMachineDataReload, object: nil)
         
         self.dismiss(animated: true)
     }

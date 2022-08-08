@@ -21,9 +21,7 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
     let badgeColorYellow = UIColor(red:1.00, green:0.92, blue:0.00, alpha:1.0)
     let badgeColorRed = UIColor(red:0.90, green:0.45, blue:0.45, alpha:1.0)
 
-    let service = LVAPIService()
     var room : LaundryRoom?
-    var machines : [MachineType: [Machine]]?
     var type = MachineType.washer
     
     @IBAction func selectMachineType(_ sender: Any) {
@@ -47,7 +45,7 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         reloadMachines()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .changedLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .machineDataReloaded, object: nil)
         
 //        if #available(iOS 10.3, *) {
 //            SKStoreReviewController.requestReview()
@@ -60,14 +58,15 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func reloadMachines() {
-        if(UserDefaults.standard.string(forKey: "roomId") != nil) {
+        if (UserDefaults.standard.string(forKey: "roomId") != nil) {
             room = LaundryRoom(
                 id: UserDefaults.standard.string(forKey: "roomId")!,
                 name: UserDefaults.standard.string(forKey: "roomName")!
             )
         }
         setRoomName()
-        loadMachines()
+        self.machineTable.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     func setRoomName() {
@@ -227,29 +226,22 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
         present(alert, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func loadMachines() {
+        NotificationCenter.default.post(name: .requestMachineDataReload, object: nil)
     }
-    */
     
-    @objc
-    private func loadMachines() {
-        guard room != nil else {
-            return
-        }
-        
-        self.refreshControl.beginRefreshing()
-        service.machineStatus(laundryRoom: room!, completion: { (machines : [MachineType: [Machine]]) in
-            self.machines = machines
-            self.machineTable.reloadData()
-            self.refreshControl.endRefreshing()
-        })
-    }
+//    @objc
+//    private func loadMachines() {
+//        guard room != nil else {
+//            return
+//        }
+//
+//        self.refreshControl.beginRefreshing()
+//        service.machineStatus(laundryRoom: room!, completion: { (machines : [MachineType: [Machine]]) in
+//            self.machines = machines
+//            self.machineTable.reloadData()
+//            self.refreshControl.endRefreshing()
+//        })
+//    }
 
 }

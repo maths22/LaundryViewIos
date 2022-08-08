@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 
+var machines: [MachineType: [Machine]]?
+
 class LVAPIService {
     
     static let endpoint = "https://lvapi.maths22.com/lv_api"
@@ -37,6 +39,19 @@ class LVAPIService {
             status = Status.unknown
         }
         return Machine(id: (machine["id"] as! String), number: (machine["number"] as! String), status: status, type: type, timeRemaining: timeRemaining)
+    }
+    
+    func reloadMachines() {
+        if (UserDefaults.standard.string(forKey: "roomId") != nil) {
+            let room = LaundryRoom(
+                id: UserDefaults.standard.string(forKey: "roomId")!,
+                name: UserDefaults.standard.string(forKey: "roomName")!
+            )
+            machineStatus(laundryRoom: room, completion: { theseMachines in
+                machines = theseMachines
+                NotificationCenter.default.post(name: .machineDataReloaded, object: nil)
+            })
+        }
     }
     
     func machineStatus(laundryRoom: LaundryRoom, completion: @escaping ([MachineType : [Machine]]) -> Void) {

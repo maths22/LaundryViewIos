@@ -13,11 +13,14 @@ class HomeTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setRoomName()
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .changedLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .machineDataReloaded, object: nil)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        if machines == nil {
+            return 1
+        }
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,8 +28,43 @@ class HomeTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "changeLocationCell", for: indexPath)
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "changeLocationCell", for: indexPath)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "machinesAvailableCell", for: indexPath) as! MachinesAvailableCell
+            
+            cell.washerImage.image = UIImage(named: "washerIcon")?.withRenderingMode(.alwaysTemplate)
+            cell.dryerImage.image = UIImage(named: "dryerIcon")?.withRenderingMode(.alwaysTemplate)
+            
+            if machines![.washer]?.allSatisfy({ $0.status == .unknown }) ?? true {
+                cell.washersAvailableLabel.text = "Status Unknown"
+                if #available(iOS 13.0, *) {
+                    cell.washerImage.tintColor = .secondaryLabel
+                }
+            } else {
+                let availableWashers = machines![.washer]?.filter({ $0.status == .available }) ?? []
+                cell.washersAvailableLabel.text = "\(availableWashers.count) washer\(availableWashers.count == 1 ? "" : "s") available"
+                
+                if #available(iOS 13.0, *) {
+                    cell.washerImage.tintColor = availableWashers.isEmpty ? .systemRed : .systemGreen
+                }
+            }
+            
+            if machines![.dryer]?.allSatisfy({ $0.status == .unknown }) ?? true {
+                cell.dryersAvailableLabel.text = "Status Unknown"
+                if #available(iOS 13.0, *) {
+                    cell.dryerImage.tintColor = .secondaryLabel
+                }
+            } else {
+                let availableDryers = machines![.dryer]?.filter({ $0.status == .available }) ?? []
+                cell.dryersAvailableLabel.text = "\(availableDryers.count) dryer\(availableDryers.count == 1 ? "" : "s") available"
+                if #available(iOS 13.0, *) {
+                    cell.dryerImage.tintColor = availableDryers.isEmpty ? .systemRed : .systemGreen
+                }
+            }
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -35,6 +73,7 @@ class HomeTVC: UITableViewController {
     
     @objc func reloadMachines() {
         setRoomName()
+        tableView.reloadData()
     }
     
     func setRoomName() {
@@ -45,5 +84,22 @@ class HomeTVC: UITableViewController {
             title = "Home"
         }
     }
+    
+}
+
+class TimeLeftCell: UITableViewCell {
+    
+    @IBOutlet var machineImage: UIImageView!
+    @IBOutlet var timeLeftLabel: UILabel!
+    @IBOutlet var machineNumberLabel: UILabel!
+    
+}
+
+class MachinesAvailableCell: UITableViewCell {
+    
+    @IBOutlet var washerImage: UIImageView!
+    @IBOutlet var washersAvailableLabel: UILabel!
+    @IBOutlet var dryerImage: UIImageView!
+    @IBOutlet var dryersAvailableLabel: UILabel!
     
 }

@@ -226,7 +226,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="3H8-Km-bGp">
             <objects>
-                <tabBarController id="chO-by-UV0" sceneMemberID="viewController">
+                <tabBarController id="chO-by-UV0" customClass="TabBarController" customModule="LaundryView" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XQc-3u-GfT"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pHd-gs-aY8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -292,54 +292,142 @@
                                     <segue destination="klG-js-huI" kind="show" id="afr-do-FVn"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="277" id="JFF-hK-7r7">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeLeftCell" rowHeight="277" id="JFF-hK-7r7" customClass="TimeLeftCell" customModule="LaundryView" customModuleProvider="target">
                                 <rect key="frame" x="20" y="81" width="374" height="277"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JFF-hK-7r7" id="Pcd-R8-zfN">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="277"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="washerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1H8-pw-lkk">
-                                            <rect key="frame" x="104" y="30" width="167" height="168"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 minutes left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJm-ev-5oc">
-                                            <rect key="frame" x="134" y="211" width="107" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 minutes left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJm-ev-5oc">
+                                            <rect key="frame" x="20" y="211" width="334" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Washer #.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3I-eJ-xsk">
-                                            <rect key="frame" x="144" y="240" width="86" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-uv-epk">
+                                            <rect key="frame" x="94.5" y="13" width="185" height="185"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="washerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1H8-pw-lkk">
+                                                    <rect key="frame" x="28" y="28" width="129" height="129"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="129" id="kwt-Rt-TTF"/>
+                                                        <constraint firstAttribute="width" secondItem="1H8-pw-lkk" secondAttribute="height" multiplier="1:1" id="qcS-Lf-WET"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="1H8-pw-lkk" firstAttribute="centerX" secondItem="V1i-uv-epk" secondAttribute="centerX" id="BQ5-ae-egt"/>
+                                                <constraint firstItem="1H8-pw-lkk" firstAttribute="centerY" secondItem="V1i-uv-epk" secondAttribute="centerY" id="eAl-xl-H5t"/>
+                                                <constraint firstAttribute="height" constant="185" id="jXd-Qk-76F"/>
+                                                <constraint firstAttribute="width" secondItem="V1i-uv-epk" secondAttribute="height" multiplier="1:1" id="joX-KC-d6A"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washer #.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3I-eJ-xsk">
+                                            <rect key="frame" x="20" y="240" width="334" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rJm-ev-5oc" firstAttribute="leading" secondItem="Pcd-R8-zfN" secondAttribute="leadingMargin" id="1TT-Bt-iTw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="x3I-eJ-xsk" secondAttribute="trailing" id="6su-kx-BZ8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rJm-ev-5oc" secondAttribute="trailing" id="7NN-WM-o9b"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="x3I-eJ-xsk" secondAttribute="bottom" constant="4" id="PAf-ty-ERr"/>
+                                        <constraint firstItem="x3I-eJ-xsk" firstAttribute="top" secondItem="rJm-ev-5oc" secondAttribute="bottom" constant="8" symbolic="YES" id="VR5-Og-VdI"/>
+                                        <constraint firstItem="V1i-uv-epk" firstAttribute="top" secondItem="Pcd-R8-zfN" secondAttribute="topMargin" constant="2" id="Xc2-5L-ukj"/>
+                                        <constraint firstItem="x3I-eJ-xsk" firstAttribute="leading" secondItem="Pcd-R8-zfN" secondAttribute="leadingMargin" id="prv-a3-V2B"/>
+                                        <constraint firstItem="rJm-ev-5oc" firstAttribute="top" secondItem="V1i-uv-epk" secondAttribute="bottom" constant="13" id="xy3-Id-BHf"/>
+                                        <constraint firstItem="V1i-uv-epk" firstAttribute="centerX" secondItem="Pcd-R8-zfN" secondAttribute="centerX" id="yfz-ls-atI"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="machineImage" destination="1H8-pw-lkk" id="htZ-F0-Gns"/>
+                                    <outlet property="machineNumberLabel" destination="x3I-eJ-xsk" id="o8c-Ys-8ml"/>
+                                    <outlet property="timeLeftLabel" destination="rJm-ev-5oc" id="SAk-WQ-whU"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="210" id="Bj3-OU-ZN3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="machinesAvailableCell" rowHeight="210" id="Bj3-OU-ZN3" customClass="MachinesAvailableCell" customModule="LaundryView" customModuleProvider="target">
                                 <rect key="frame" x="20" y="358" width="374" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bj3-OU-ZN3" id="ysz-mu-aUv">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="210"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 washers available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-SD-cck">
-                                            <rect key="frame" x="35" y="158" width="148" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="washerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-zI-TaY">
-                                            <rect key="frame" x="49" y="21" width="121" height="119"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pt9-xH-izD">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="210"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="washerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-zI-TaY">
+                                                    <rect key="frame" x="33" y="26" width="121" height="129"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Vd4-zI-TaY" secondAttribute="height" multiplier="121:129" id="nvS-3i-XWF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 washers available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-SD-cck">
+                                                    <rect key="frame" x="10" y="163" width="167" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vd4-zI-TaY" firstAttribute="top" secondItem="Pt9-xH-izD" secondAttribute="top" constant="26" id="A6K-uR-OT1"/>
+                                                <constraint firstItem="Vd4-zI-TaY" firstAttribute="leading" secondItem="Pt9-xH-izD" secondAttribute="leading" constant="33" id="BkK-Qv-oIk"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vd4-zI-TaY" secondAttribute="trailing" constant="33" id="KIs-o2-eZj"/>
+                                                <constraint firstAttribute="bottom" secondItem="DNo-SD-cck" secondAttribute="bottom" constant="26" id="O26-Lv-AYC"/>
+                                                <constraint firstItem="DNo-SD-cck" firstAttribute="leading" secondItem="Pt9-xH-izD" secondAttribute="leading" constant="10" id="dfU-Gp-W4X"/>
+                                                <constraint firstItem="Vd4-zI-TaY" firstAttribute="centerX" secondItem="Pt9-xH-izD" secondAttribute="centerX" id="fWb-f4-D7Y"/>
+                                                <constraint firstAttribute="trailing" secondItem="DNo-SD-cck" secondAttribute="trailing" constant="10" id="xPc-2Q-zyf"/>
+                                                <constraint firstItem="DNo-SD-cck" firstAttribute="top" secondItem="Vd4-zI-TaY" secondAttribute="bottom" constant="8" symbolic="YES" id="xyb-D2-Mj1"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5I-fa-RHq">
+                                            <rect key="frame" x="187" y="0.0" width="187" height="210"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dryerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9Vu-Bo-vZD">
+                                                    <rect key="frame" x="33" y="26" width="121" height="129"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="9Vu-Bo-vZD" secondAttribute="height" multiplier="121:129" id="nny-v5-H69"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 dryers available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wm-hR-gy5">
+                                                    <rect key="frame" x="10" y="163" width="167" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5Wm-hR-gy5" firstAttribute="top" secondItem="9Vu-Bo-vZD" secondAttribute="bottom" constant="8" symbolic="YES" id="60N-qY-Tvc"/>
+                                                <constraint firstItem="9Vu-Bo-vZD" firstAttribute="centerX" secondItem="m5I-fa-RHq" secondAttribute="centerX" id="6lN-Gf-SVO"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Vu-Bo-vZD" secondAttribute="trailing" constant="33" id="9KW-Sg-FcA"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Wm-hR-gy5" secondAttribute="bottom" constant="26" id="Jti-9q-Wcx"/>
+                                                <constraint firstItem="9Vu-Bo-vZD" firstAttribute="leading" secondItem="m5I-fa-RHq" secondAttribute="leading" constant="33" id="Y0B-b2-nqO"/>
+                                                <constraint firstItem="5Wm-hR-gy5" firstAttribute="leading" secondItem="m5I-fa-RHq" secondAttribute="leading" constant="10" id="gOD-6G-nPc"/>
+                                                <constraint firstItem="9Vu-Bo-vZD" firstAttribute="top" secondItem="m5I-fa-RHq" secondAttribute="top" constant="26" id="qdE-ds-LH4"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Wm-hR-gy5" secondAttribute="trailing" constant="10" id="zuJ-jR-IPn"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Pt9-xH-izD" firstAttribute="top" secondItem="ysz-mu-aUv" secondAttribute="top" id="31n-dl-716"/>
+                                        <constraint firstItem="m5I-fa-RHq" firstAttribute="width" secondItem="Pt9-xH-izD" secondAttribute="width" id="7j4-nW-4S6"/>
+                                        <constraint firstAttribute="bottom" secondItem="m5I-fa-RHq" secondAttribute="bottom" id="MCe-hp-4Zf"/>
+                                        <constraint firstItem="m5I-fa-RHq" firstAttribute="top" secondItem="ysz-mu-aUv" secondAttribute="top" id="U1Y-t2-JkR"/>
+                                        <constraint firstAttribute="trailing" secondItem="m5I-fa-RHq" secondAttribute="trailing" id="hRS-aP-JLE"/>
+                                        <constraint firstItem="Pt9-xH-izD" firstAttribute="leading" secondItem="ysz-mu-aUv" secondAttribute="leading" id="iYk-Vd-z5y"/>
+                                        <constraint firstAttribute="bottom" secondItem="Pt9-xH-izD" secondAttribute="bottom" id="kXT-a1-moW"/>
+                                        <constraint firstItem="m5I-fa-RHq" firstAttribute="leading" secondItem="Pt9-xH-izD" secondAttribute="trailing" id="pfV-O1-kBK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dryerImage" destination="9Vu-Bo-vZD" id="DLT-1v-bC3"/>
+                                    <outlet property="dryersAvailableLabel" destination="5Wm-hR-gy5" id="onh-SE-fxJ"/>
+                                    <outlet property="washerImage" destination="Vd4-zI-TaY" id="Kob-io-wBt"/>
+                                    <outlet property="washersAvailableLabel" destination="DNo-SD-cck" id="6a7-aK-dZp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -375,6 +463,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dryerIcon" width="669" height="669"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="note" catalog="system" width="128" height="106"/>
         <image name="washerIcon" width="554" height="554"/>
