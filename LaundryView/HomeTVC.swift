@@ -24,6 +24,7 @@ class HomeTVC: UITableViewController {
         super.viewDidLoad()
         setRoomName()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .machineDataReloaded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadMachines), name: .reloadHomeTVC, object: nil)
         self.refreshControl?.addTarget(self, action: #selector(loadMachines), for: UIControl.Event.valueChanged)
         currentMachines = CurrentMachineCache.getAndFilter()
     }
@@ -62,7 +63,7 @@ class HomeTVC: UITableViewController {
             
             cell.timeLeftLabel.text = "Done"
             if let dateDone = machine.dateDone {
-                let difference = Calendar.current.dateComponents([.minute], from: dateDone, to: Date()).minute ?? 0
+                let difference = Calendar.current.dateComponents([.minute], from: Date(), to: dateDone).minute ?? 0
                 if difference > 0 {
                     cell.timeLeftLabel.text = "\(difference) minute\(difference == 1 ? "" : "s") left"
                 }
@@ -139,7 +140,11 @@ class HomeTVC: UITableViewController {
         let index = button.tag
         CurrentMachineCache.removeMachine(with: currentMachines[index].id)
         currentMachines.remove(at: index)
-        tableView.deleteRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
+        if currentMachines.isEmpty {
+            tableView.deleteSections([1], with: .automatic)
+        } else {
+            tableView.deleteRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
+        }
     }
     
 }

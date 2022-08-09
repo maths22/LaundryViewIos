@@ -43,7 +43,7 @@ struct CurrentMachineCache {
     
     static func addMachine(_ machine: CurrentMachine) {
         var machines = get() ?? []
-        machines.append(machine)
+        machines.insert(machine, at: 0)
         save(machines)
     }
     
@@ -59,7 +59,7 @@ struct CurrentMachineCache {
         let date = Date()
         let filteredMachines = machines.filter({ machine in
             if let dateDone = machine.dateDone {
-                let difference = Calendar.current.dateComponents([.hour], from: dateDone, to: date).hour ?? 0
+                let difference = Calendar.current.dateComponents([.hour], from: date, to: dateDone).hour ?? 0
                 return difference > -10
             }
             return false

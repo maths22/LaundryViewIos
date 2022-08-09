@@ -227,6 +227,7 @@ class MachinesViewController: UIViewController, UITableViewDataSource, UITableVi
             CurrentMachineCache.removeMachine(with: machine.id)
         }
         
+        NotificationCenter.default.post(name: .reloadHomeTVC, object: nil)
         
         
     }

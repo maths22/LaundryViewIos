@@ -295,7 +295,7 @@
                                     <segue destination="klG-js-huI" kind="show" id="afr-do-FVn"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeLeftCell" rowHeight="277" id="JFF-hK-7r7" customClass="TimeLeftCell" customModule="LaundryView" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="timeLeftCell" rowHeight="277" id="JFF-hK-7r7" customClass="TimeLeftCell" customModule="LaundryView" customModuleProvider="target">
                                 <rect key="frame" x="20" y="81" width="374" height="277"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JFF-hK-7r7" id="Pcd-R8-zfN">
@@ -319,7 +319,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="1H8-pw-lkk" firstAttribute="centerX" secondItem="V1i-uv-epk" secondAttribute="centerX" id="BQ5-ae-egt"/>
                                                 <constraint firstItem="1H8-pw-lkk" firstAttribute="centerY" secondItem="V1i-uv-epk" secondAttribute="centerY" id="eAl-xl-H5t"/>

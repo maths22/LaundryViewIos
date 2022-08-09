@@ -13,5 +13,6 @@ extension Notification.Name {
 //    static let changedLocation = Notification.Name("changedLocation")
     static let requestMachineDataReload = Notification.Name("requestMachineDataReload")
     static let machineDataReloaded = Notification.Name("machineDataReloaded")
+    static let reloadHomeTVC = Notification.Name("reloadHomeTVC")
     
 }
