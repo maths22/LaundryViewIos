@@ -11,12 +11,12 @@ import BadgeSwift
 
 class MachineTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var backndView: UIView!
     @IBOutlet weak var numberLabel: BadgeSwift!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var remainingLabel: UILabel!
     @IBOutlet weak var alertSwitch: UISwitch!
     var key: String = ""
-    let service = LVAPIService()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,13 +32,14 @@ class MachineTableViewCell: UITableViewCell {
 
     @IBAction func switchChanged(_ sender: Any) {
         UserDefaults.standard.set(alertSwitch.isOn, forKey: key)
-        guard let token = UserDefaults.standard.string(forKey: "firebaseToken") else {
-            return
-        }
-        if(alertSwitch.isOn) {
-            service.registerNotification(machineId: key, requesterId: token)
-        } else {
-            service.unregisterNotification(machineId: key, requesterId: token)
-        }
+//        guard let token = UserDefaults.standard.string(forKey: "firebaseToken") else {
+//            return
+//        }
+//        if(alertSwitch.isOn) {
+//            service.registerNotification(machineId: key, requesterId: token)
+//        } else {
+//            service.unregisterNotification(machineId: key, requesterId: token)
+//        }
+        
     }
 }

@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		1AC66AA13E602016D20C11F0 /* Pods_LaundryView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0C9EAF64AA7FE40ADD5E31 /* Pods_LaundryView.framework */; };
 		3A2A48091B46ED30B0409B8C /* Pods_LaundryViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DF513F55A060D3FD5C3966 /* Pods_LaundryViewTests.framework */; };
+		7441B6DD28A1FF4900CF0987 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441B6DC28A1FF4800CF0987 /* CircularProgressBarView.swift */; };
+		7473EC0728A0636B00D2A811 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0628A0636B00D2A811 /* HomeTVC.swift */; };
+		7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0828A086E600D2A811 /* NSNotifications.swift */; };
+		7473EC0D28A0BDAF00D2A811 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */; };
+		74A38B1728A0E466002DA88B /* CurrentMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A38B1628A0E466002DA88B /* CurrentMachine.swift */; };
 		9C7C363E64EFF5DA5C701E93 /* Pods_LaundryViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9FF5AE20564283C59F224A /* Pods_LaundryViewUITests.framework */; };
 		DDDF240F1F979D12007111A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF240E1F979D12007111A3 /* AppDelegate.swift */; };
-		DDDF24111F979D12007111A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF24101F979D12007111A3 /* ViewController.swift */; };
 		DDDF24141F979D12007111A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDF24121F979D12007111A3 /* Main.storyboard */; };
 		DDDF24161F979D12007111A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDF24151F979D12007111A3 /* Assets.xcassets */; };
 		DDDF24191F979D12007111A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDF24171F979D12007111A3 /* LaunchScreen.storyboard */; };
@@ -25,7 +29,6 @@
 		DDDF24881F97C2C9007111A3 /* MachinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF24871F97C2C9007111A3 /* MachinesViewController.swift */; };
 		DDDF248A1F97DF68007111A3 /* MachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */; };
 		DDDF248C1F97F0C5007111A3 /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */; };
-		DDDF248E1F980505007111A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDDF248D1F98047D007111A3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +51,16 @@
 /* Begin PBXFileReference section */
 		342E7BDEE61B31F10035A16F /* Pods-LaundryViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-LaundryViewUITests/Pods-LaundryViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A5AE90F32C55C507D83B2D0 /* Pods-LaundryViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewTests.debug.xcconfig"; path = "Target Support Files/Pods-LaundryViewTests/Pods-LaundryViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7441B6DC28A1FF4800CF0987 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		7473EC0628A0636B00D2A811 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		7473EC0828A086E600D2A811 /* NSNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotifications.swift; sourceTree = "<group>"; };
+		7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		74A38B1628A0E466002DA88B /* CurrentMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMachine.swift; sourceTree = "<group>"; };
 		8CB3701F2291EE20009B82CC /* LaundryView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaundryView.entitlements; sourceTree = "<group>"; };
 		8D4AC5A4EFA7B4D866616084 /* Pods-LaundryViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewTests.release.xcconfig"; path = "Target Support Files/Pods-LaundryViewTests/Pods-LaundryViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		8ED5074B013A408084F2912A /* Pods-LaundryViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewUITests.release.xcconfig"; path = "Target Support Files/Pods-LaundryViewUITests/Pods-LaundryViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DDDF240B1F979D12007111A3 /* LaundryView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaundryView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDF240E1F979D12007111A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDDF24101F979D12007111A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDDF24131F979D12007111A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDDF24151F979D12007111A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDF24181F979D12007111A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +79,6 @@
 		DDDF24871F97C2C9007111A3 /* MachinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinesViewController.swift; sourceTree = "<group>"; };
 		DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineTableViewCell.swift; sourceTree = "<group>"; };
 		DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
-		DDDF248D1F98047D007111A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0DF513F55A060D3FD5C3966 /* Pods_LaundryViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaundryViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E397C026170274307EC1252D /* Pods-LaundryView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryView.debug.xcconfig"; path = "Target Support Files/Pods-LaundryView/Pods-LaundryView.debug.xcconfig"; sourceTree = "<group>"; };
 		EA1946AFE5F2E36E29F286BA /* Pods-LaundryView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryView.release.xcconfig"; path = "Target Support Files/Pods-LaundryView/Pods-LaundryView.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,18 +163,20 @@
 			isa = PBXGroup;
 			children = (
 				8CB3701F2291EE20009B82CC /* LaundryView.entitlements */,
-				DDDF248D1F98047D007111A3 /* GoogleService-Info.plist */,
-				DDDF24401F97A134007111A3 /* data */,
 				DDDF240E1F979D12007111A3 /* AppDelegate.swift */,
+				DDDF24401F97A134007111A3 /* data */,
 				DDDF24851F97BC20007111A3 /* LaundryRoomTableViewController.swift */,
-				DDDF24101F979D12007111A3 /* ViewController.swift */,
+				7473EC0628A0636B00D2A811 /* HomeTVC.swift */,
+				DDDF24871F97C2C9007111A3 /* MachinesViewController.swift */,
+				7473EC0828A086E600D2A811 /* NSNotifications.swift */,
+				DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */,
+				DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */,
+				7441B6DC28A1FF4800CF0987 /* CircularProgressBarView.swift */,
 				DDDF24121F979D12007111A3 /* Main.storyboard */,
+				7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */,
 				DDDF24151F979D12007111A3 /* Assets.xcassets */,
 				DDDF24171F979D12007111A3 /* LaunchScreen.storyboard */,
 				DDDF241A1F979D12007111A3 /* Info.plist */,
-				DDDF24871F97C2C9007111A3 /* MachinesViewController.swift */,
-				DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */,
-				DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */,
 			);
 			path = LaundryView;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			children = (
 				DDDF243C1F979FDE007111A3 /* LaundryRoom.swift */,
 				DDDF243E1F97A12D007111A3 /* Machine.swift */,
+				74A38B1628A0E466002DA88B /* CurrentMachine.swift */,
 				DDDF24411F97A2EE007111A3 /* School.swift */,
 				DDDF24801F97AD88007111A3 /* LaundryViewApiService.swift */,
 			);
@@ -321,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDDF24191F979D12007111A3 /* LaunchScreen.storyboard in Resources */,
-				DDDF248E1F980505007111A3 /* GoogleService-Info.plist in Resources */,
 				DDDF24161F979D12007111A3 /* Assets.xcassets in Resources */,
 				DDDF24141F979D12007111A3 /* Main.storyboard in Resources */,
 			);
@@ -432,27 +440,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LaundryView/Pods-LaundryView-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -466,14 +466,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDDF24111F979D12007111A3 /* ViewController.swift in Sources */,
+				7441B6DD28A1FF4900CF0987 /* CircularProgressBarView.swift in Sources */,
+				74A38B1728A0E466002DA88B /* CurrentMachine.swift in Sources */,
 				DDDF243F1F97A12D007111A3 /* Machine.swift in Sources */,
 				DDDF248A1F97DF68007111A3 /* MachineTableViewCell.swift in Sources */,
+				7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */,
 				DDDF240F1F979D12007111A3 /* AppDelegate.swift in Sources */,
+				7473EC0728A0636B00D2A811 /* HomeTVC.swift in Sources */,
 				DDDF248C1F97F0C5007111A3 /* SchoolSearchViewController.swift in Sources */,
 				DDDF24861F97BC20007111A3 /* LaundryRoomTableViewController.swift in Sources */,
 				DDDF24811F97AD88007111A3 /* LaundryViewApiService.swift in Sources */,
 				DDDF24421F97A2EE007111A3 /* School.swift in Sources */,
+				7473EC0D28A0BDAF00D2A811 /* TabBarController.swift in Sources */,
 				DDDF24881F97C2C9007111A3 /* MachinesViewController.swift in Sources */,
 				DDDF243D1F979FDE007111A3 /* LaundryRoom.swift in Sources */,
 			);
@@ -649,11 +653,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LaundryView/LaundryView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 549ZN99462;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5E845TX3E6;
 				INFOPLIST_FILE = LaundryView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maths22.LaundryView;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maths22.LaundryViewPlusPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -670,11 +676,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LaundryView/LaundryView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 549ZN99462;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5E845TX3E6;
 				INFOPLIST_FILE = LaundryView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maths22.LaundryView;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maths22.LaundryViewPlusPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

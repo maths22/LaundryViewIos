@@ -8,9 +8,8 @@ target 'LaundryView' do
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
   # Pods for LaundryView
   pod 'BadgeSwift', '~> 8.0'
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
   pod 'Alamofire', '~> 4.7'
+  pod 'JGProgressHUD'
 
   target 'LaundryViewTests' do
     inherit! :search_paths

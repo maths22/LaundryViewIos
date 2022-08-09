@@ -7,15 +7,11 @@
 //
 
 import UIKit
-import Firebase
 import UserNotifications
 import Sentry
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
-    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        UserDefaults.standard.set(fcmToken, forKey: "firebaseToken")
-    }
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -23,30 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        FirebaseApp.configure()
+        // For iOS 10 display notification (sent via APNS)
+        UNUserNotificationCenter.current().delegate = self
         
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
         
         application.registerForRemoteNotifications()
-        Messaging.messaging().delegate = self
         
-        do {
-            Client.shared = try Client(dsn: "https://e6149b80e2ee49088d3c141a53195caa@sentry.io/1463101")
-            try Client.shared?.startCrashHandler()
-        } catch let error {
-            print("\(error)")
+        if UserDefaults.standard.string(forKey: "schoolId") == nil {
+            let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchNavController")
+            self.window?.rootViewController = rootController
         }
 
         return true
@@ -81,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if let key = userInfo["completed"] {
             UserDefaults.standard.set(false, forKey: (key as! String))
         }
+        NotificationCenter.default.post(name: .reloadHomeTVC, object: nil)
     }
 
 }
