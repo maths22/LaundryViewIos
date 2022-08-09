@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1AC66AA13E602016D20C11F0 /* Pods_LaundryView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0C9EAF64AA7FE40ADD5E31 /* Pods_LaundryView.framework */; };
 		3A2A48091B46ED30B0409B8C /* Pods_LaundryViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DF513F55A060D3FD5C3966 /* Pods_LaundryViewTests.framework */; };
+		7441B6DD28A1FF4900CF0987 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441B6DC28A1FF4800CF0987 /* CircularProgressBarView.swift */; };
 		7473EC0728A0636B00D2A811 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0628A0636B00D2A811 /* HomeTVC.swift */; };
 		7473EC0928A086E600D2A811 /* NSNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0828A086E600D2A811 /* NSNotifications.swift */; };
 		7473EC0D28A0BDAF00D2A811 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		342E7BDEE61B31F10035A16F /* Pods-LaundryViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-LaundryViewUITests/Pods-LaundryViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A5AE90F32C55C507D83B2D0 /* Pods-LaundryViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryViewTests.debug.xcconfig"; path = "Target Support Files/Pods-LaundryViewTests/Pods-LaundryViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7441B6DC28A1FF4800CF0987 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		7473EC0628A0636B00D2A811 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		7473EC0828A086E600D2A811 /* NSNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotifications.swift; sourceTree = "<group>"; };
 		7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				7473EC0828A086E600D2A811 /* NSNotifications.swift */,
 				DDDF24891F97DF68007111A3 /* MachineTableViewCell.swift */,
 				DDDF248B1F97F0C5007111A3 /* SchoolSearchViewController.swift */,
+				7441B6DC28A1FF4800CF0987 /* CircularProgressBarView.swift */,
 				DDDF24121F979D12007111A3 /* Main.storyboard */,
 				7473EC0C28A0BDAF00D2A811 /* TabBarController.swift */,
 				DDDF24151F979D12007111A3 /* Assets.xcassets */,
@@ -463,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7441B6DD28A1FF4900CF0987 /* CircularProgressBarView.swift in Sources */,
 				74A38B1728A0E466002DA88B /* CurrentMachine.swift in Sources */,
 				DDDF243F1F97A12D007111A3 /* Machine.swift in Sources */,
 				DDDF248A1F97DF68007111A3 /* MachineTableViewCell.swift in Sources */,

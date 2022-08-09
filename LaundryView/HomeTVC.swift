@@ -11,6 +11,7 @@ import UIKit
 class HomeTVC: UITableViewController {
     
     var currentMachines: [CurrentMachine] = []
+    var progressViews: [CircularProgressBarView] = []
     
     var machinesSection: Int {
         return currentMachines.isEmpty ? 1 : 2
@@ -121,6 +122,25 @@ class HomeTVC: UITableViewController {
         currentMachines = CurrentMachineCache.getAndFilter()
         tableView.reloadData()
         refreshControl?.endRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            for i in 0 ..< self.currentMachines.count {
+                let currentMachine = self.currentMachines[i]
+                if let cell = self.tableView.cellForRow(at: IndexPath(row: i, section: 1)) as? TimeLeftCell, let dateDone = currentMachine.dateDone {
+                    cell.circularProgressBarView?.removeFromSuperview()
+                    cell.circularProgressBarView = CircularProgressBarView(frame: cell.machineImageHoldingView.frame)
+                    cell.circularProgressBarView!.createCircularPath()
+                    cell.addSubview(cell.circularProgressBarView!)
+                    let difference = Calendar.current.dateComponents([.minute], from: Date(), to: dateDone).minute ?? 0
+                    if difference > 0 {
+                        let timeFromStart = Double(Calendar.current.dateComponents([.minute], from: currentMachine.startDate, to: Date()).minute ?? 0)
+                        let totalTime = Double(Calendar.current.dateComponents([.minute], from: currentMachine.startDate, to: dateDone).minute ?? 0)
+                        cell.circularProgressBarView!.animate(to: timeFromStart/totalTime)
+                    } else {
+                        cell.circularProgressBarView!.finishAnimation()
+                    }
+                }
+            }
+        }
     }
     
     func setRoomName() {
@@ -151,6 +171,9 @@ class HomeTVC: UITableViewController {
 
 class TimeLeftCell: UITableViewCell {
     
+    var circularProgressBarView: CircularProgressBarView?
+    
+    @IBOutlet var machineImageHoldingView: UIView!
     @IBOutlet var machineImage: UIImageView!
     @IBOutlet var timeLeftLabel: UILabel!
     @IBOutlet var machineNumberLabel: UILabel!

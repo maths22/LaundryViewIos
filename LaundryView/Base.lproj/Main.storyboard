@@ -295,15 +295,15 @@
                                     <segue destination="klG-js-huI" kind="show" id="afr-do-FVn"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="timeLeftCell" rowHeight="277" id="JFF-hK-7r7" customClass="TimeLeftCell" customModule="LaundryView" customModuleProvider="target">
-                                <rect key="frame" x="20" y="81" width="374" height="277"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="timeLeftCell" rowHeight="254" id="JFF-hK-7r7" customClass="TimeLeftCell" customModule="LaundryView" customModuleProvider="target">
+                                <rect key="frame" x="20" y="81" width="374" height="254"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JFF-hK-7r7" id="Pcd-R8-zfN">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="277"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="254"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 minutes left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJm-ev-5oc">
-                                            <rect key="frame" x="20" y="211" width="334" height="21"/>
+                                            <rect key="frame" x="20" y="188" width="334" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -328,7 +328,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washer #.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3I-eJ-xsk">
-                                            <rect key="frame" x="20" y="240" width="334" height="22"/>
+                                            <rect key="frame" x="20" y="217" width="334" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
@@ -347,7 +347,6 @@
                                                     <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="nhA-jd-dN5" secondAttribute="height" multiplier="1:1" id="0NX-2C-PgJ"/>
                                                 <constraint firstItem="zf7-cn-caS" firstAttribute="top" secondItem="nhA-jd-dN5" secondAttribute="top" id="MSr-kg-ZSD"/>
@@ -369,22 +368,23 @@
                                         <constraint firstAttribute="trailing" secondItem="nhA-jd-dN5" secondAttribute="trailing" constant="10" id="8wK-N6-sgv"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="x3I-eJ-xsk" secondAttribute="bottom" constant="4" id="PAf-ty-ERr"/>
                                         <constraint firstItem="nhA-jd-dN5" firstAttribute="top" secondItem="Pcd-R8-zfN" secondAttribute="top" constant="10" id="Qby-A4-Sgs"/>
+                                        <constraint firstItem="rJm-ev-5oc" firstAttribute="top" secondItem="V1i-uv-epk" secondAttribute="bottom" constant="-10" id="Tah-Wb-B4l"/>
                                         <constraint firstItem="x3I-eJ-xsk" firstAttribute="top" secondItem="rJm-ev-5oc" secondAttribute="bottom" constant="8" symbolic="YES" id="VR5-Og-VdI"/>
                                         <constraint firstItem="V1i-uv-epk" firstAttribute="top" secondItem="Pcd-R8-zfN" secondAttribute="topMargin" constant="2" id="Xc2-5L-ukj"/>
                                         <constraint firstItem="x3I-eJ-xsk" firstAttribute="leading" secondItem="Pcd-R8-zfN" secondAttribute="leadingMargin" id="prv-a3-V2B"/>
-                                        <constraint firstItem="rJm-ev-5oc" firstAttribute="top" secondItem="V1i-uv-epk" secondAttribute="bottom" constant="13" id="xy3-Id-BHf"/>
                                         <constraint firstItem="V1i-uv-epk" firstAttribute="centerX" secondItem="Pcd-R8-zfN" secondAttribute="centerX" id="yfz-ls-atI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="machineImage" destination="1H8-pw-lkk" id="htZ-F0-Gns"/>
+                                    <outlet property="machineImageHoldingView" destination="V1i-uv-epk" id="nup-Wa-X5L"/>
                                     <outlet property="machineNumberLabel" destination="x3I-eJ-xsk" id="o8c-Ys-8ml"/>
                                     <outlet property="timeLeftLabel" destination="rJm-ev-5oc" id="SAk-WQ-whU"/>
                                     <outlet property="xButton" destination="zf7-cn-caS" id="RUK-Ie-dWG"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="machinesAvailableCell" rowHeight="210" id="Bj3-OU-ZN3" customClass="MachinesAvailableCell" customModule="LaundryView" customModuleProvider="target">
-                                <rect key="frame" x="20" y="358" width="374" height="210"/>
+                                <rect key="frame" x="20" y="335" width="374" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bj3-OU-ZN3" id="ysz-mu-aUv">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="210"/>

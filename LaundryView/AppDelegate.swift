@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if let key = userInfo["completed"] {
             UserDefaults.standard.set(false, forKey: (key as! String))
         }
+        NotificationCenter.default.post(name: .reloadHomeTVC, object: nil)
     }
 
 }

@@ -59,11 +59,12 @@ struct CurrentMachineCache {
         let date = Date()
         let filteredMachines = machines.filter({ machine in
             if let dateDone = machine.dateDone {
-                let difference = Calendar.current.dateComponents([.hour], from: date, to: dateDone).hour ?? 0
-                return difference > -10
+                let difference = Calendar.current.dateComponents([.hour], from: dateDone, to: date).hour ?? 0
+                return difference < 10
             }
             return false
         })
+        save(filteredMachines)
         return filteredMachines
     }
 }
